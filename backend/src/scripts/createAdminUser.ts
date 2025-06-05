@@ -2,10 +2,10 @@ import bcrypt from 'bcrypt';
 import prisma from '../prisma/client';
 
 async function createAdminUser() {
-  const passwordHash = await bcrypt.hash('adminpassword', 10);
+  const passwordHash = await bcrypt.hash('unicorn', 10);
   const user = await prisma.user.create({
     data: {
-      login: 'admin',
+      login: 'sigmamed',
       password: passwordHash,
       role: 'admin',
       email: 'admin@example.com',
