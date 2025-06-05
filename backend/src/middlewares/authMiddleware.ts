@@ -17,10 +17,7 @@ export const authenticateToken = (
   res: Response,
   next: NextFunction
 ): void => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.startsWith('Bearer ')
-    ? authHeader.slice(7)
-    : null;
+  const token = req.cookies?.token;
 
   if (!token) {
     res.status(401).json({ message: 'Access token missing' });

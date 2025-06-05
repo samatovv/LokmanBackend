@@ -29,11 +29,11 @@ export const login = async (req: Request, res: Response) => {
 
   res.cookie('token', token, {
     httpOnly: true,
-    secure: false,        // false, потому что HTTP, не HTTPS
-    sameSite: false,      // или 'none', чтобы не блокировалось
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
     maxAge: 1000 * 60 * 60 * 8,
     path: '/'
-  });  
+  });
 
   res.json({ token, role: user.role });
 };
