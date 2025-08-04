@@ -4,22 +4,27 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 import { api } from "../api";
 
 interface AuthStoreState {
-    logout: () => Promise<void>
-    signIn: (data: LoginReq, router: AppRouterInstance) => Promise<LoginRes>
-    loading: boolean
+    logout: () => Promise<void>;
+    signIn: (data: LoginReq, router: AppRouterInstance) => Promise<LoginRes>;
+    loading: boolean;
 }
 
 export const useAuthStore = create<AuthStoreState>((set) => ({
     loading: false,
+
     signIn: async (data, router) => {
         set({ loading: true });
         try {
             const res = await api.signIn(data);
-            if(res.data.role === 'admin') {
-                await router.push('/admin')
-            }else if(res.data.role === 'user') {
-                await router.push('/')
+
+            localStorage.setItem("token", res.data.token);
+
+            if (res.data.role === "admin") {
+                await router.push("/manager");
+            } else if (res.data.role === "user") {
+                await router.push("/");
             }
+
             return res.data;
         } catch (error) {
             throw error;
@@ -27,11 +32,19 @@ export const useAuthStore = create<AuthStoreState>((set) => ({
             set({ loading: false });
         }
     },
+
     logout: async () => {
         try {
             await api.logout();
+
+            // ✅ Удаляем токен из localStorage
+            localStorage.removeItem("token");
+
+            // ❗️ можно добавить редирект на /auth/login (опционально)
+            // например: window.location.href = '/auth/login';
+
         } catch (error) {
             throw error;
         }
-    }
+    },
 }));

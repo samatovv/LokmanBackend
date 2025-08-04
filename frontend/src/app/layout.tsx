@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
-  const isAdmin = ['/admin', '/auth'].some(path => pathname.startsWith(path));
+  const isAdmin = ['/manager', '/auth'].some(path => pathname.startsWith(path));
   return (
     <html lang="ru">
       <body className={!isAdmin ? 'pt-[110px] md:pt-[185px]' : ''}>

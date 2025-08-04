@@ -17,7 +17,7 @@ export default function Footer() {
 
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Контакты</h3>
-                        <p className="text-sm mb-2">996-999-88-66-44</p>
+                        <p className="text-sm mb-2">+996 500 288 588</p>
                         <p className="text-sm mb-2">Понедельник - Пятница: 9:00 - 18:00</p>
                         <p className="text-sm mb-2">Суббота: 10:00 - 18:00</p>
                     </div>

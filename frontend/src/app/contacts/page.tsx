@@ -11,19 +11,17 @@ export default function ContactsPage() {
                 </p>
 
                 <div className="mb-6">
-                    <h2 className="text-xl font-semibold mb-2">Адреса</h2>
-                    <p>Республика Казахстан, г. Астана, Коргальжинское шоссе 13/7</p>
-                    <p>г. Алматы, ул. Мауленова 85, офис 209</p>
+                    <h2 className="text-xl font-semibold mb-2">Адрес:</h2>
+                    <p>Кыргызская Республика, г. Бишкек, ул. Жукеева-Пудовкина 118А</p>
                 </div>
 
                 <div className="mb-6">
                     <h2 className="text-xl font-semibold mb-2">Контакты</h2>
-                    <p>Телефон: <a href="tel:+77172280874" className="text-[#15A8E3] hover:underline">8 7172 28 08 74</a></p>
-                    <p>WhatsApp: <a href="tel:+77013151128" className="text-[#15A8E3] hover:underline">+7 701 315 1128</a></p>
-                    <p>Email: <a href="mailto:mdtech11@mail.ru" className="text-[#15A8E3] hover:underline">mdtech11@mail.ru</a></p>
+                    <p>Номера: <a href="tel:+77172280874" className="text-[#15A8E3] hover:underline">996 500 288 588, +996 500 133 131, +996 500 122 422</a></p>
+                    <p>Email: <a href="mailto:mdtech11@mail.ru" className="text-[#15A8E3] hover:underline">sigmamedtrade@mail.ru</a></p>
                 </div>
 
-                <div className="mb-6">
+                {/* <div className="mb-6">
                     <h2 className="text-xl font-semibold mb-2">Реквизиты</h2>
                     <p>ТОО «МD Tech»</p>
                     <p>Республика Казахстан, г. Астана, ул. Коргалжинское шоссе, д.13/7</p>
@@ -33,7 +31,7 @@ export default function ContactsPage() {
                     <p>Счет № KZ246010191000197779 (KZT)</p>
                     <p>НДС серия 62001 № 0024910 от 14.12.2012г.</p>
                     <p>Директор: Ким Олег Арсеньевич</p>
-                </div>
+                </div> */}
             </Container>
         </div>
     );

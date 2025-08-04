@@ -92,7 +92,7 @@ export default function EditProductPage() {
       quantity: form.quantity.toString(),
       isTop: form.isTop,
     });
-    router.push('/admin/products');
+    router.push('/manager/products');
   };
 
   return (

@@ -68,6 +68,7 @@ export default function ClientCategories() {
                                     width={100}
                                     height={100}
                                     alt={cat.name}
+                                    unoptimized
                                 />
                                 <p className="text-center font-medium">{cat.name}</p>
                             </motion.div>

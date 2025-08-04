@@ -1,4 +1,5 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+// import Image from "next/image";
 import { Product } from "@/features/Products/type";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from '@mui/icons-material/Search';
@@ -14,7 +15,7 @@ export default function Card({ data }: { data: Product }) {
     return (
         <div onClick={() => router.push(`/product/${data.id}`)} className="w-full h-[380px] cursor-pointer flex flex-col justify-between group relative rounded-2xl transition-all duration-300">
             <div className="relative w-full h-[200px] rounded-xl overflow-hidden">
-                <Image
+                <img
                     className="w-full h-full object-cover"
                     src={`${baseURL}/uploads/${data.image}`}
                     alt={data.name}
@@ -43,7 +44,7 @@ export default function Card({ data }: { data: Product }) {
             <div>
                 <button className="w-full flex items-center justify-center gap-2 bg-[#ECF4F6] text-[#184363] hover:bg-[#184363] hover:text-white rounded-full py-3 transition-colors duration-300">
                     <ShoppingCartOutlinedIcon sx={{ color: 'currentColor', fontSize: '20px' }} />
-                    <span className="text-sm font-medium">Select options</span>
+                    <span className="text-sm font-medium">Посмотреть</span>
                 </button>
             </div>
             <ProductModal open={isModalOpen} onClose={() => setIsModalOpen(false)} product={data} />

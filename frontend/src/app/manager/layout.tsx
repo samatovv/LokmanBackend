@@ -1,8 +1,20 @@
+'use client';
+
 import NavBar from '@/widgets/NavBar';
 import SideBar from '@/widgets/SideBar';
-import { ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
+import { ReactNode, useEffect } from 'react';
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      router.push('/auth/login');
+    }
+  }, []);
+  
   return (
     <>
       <NavBar />

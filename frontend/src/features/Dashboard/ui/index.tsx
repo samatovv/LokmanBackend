@@ -9,16 +9,6 @@ import {
 } from '@/components/ui/card';
 import { useAnalyticsStore } from '../model/store';
 
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  ResponsiveContainer,
-} from 'recharts';
-
 export default function Dashboard() {
   const { analytics, fetchAnalytics } = useAnalyticsStore();
 
@@ -34,20 +24,11 @@ export default function Dashboard() {
     cheapestProduct,
     newestProduct,
     oldestProduct,
-    newProductsByDay = [
-      { date: '2025-05-22', count: 2 },
-      { date: '2025-05-23', count: 3 },
-      { date: '2025-05-24', count: 1 },
-      { date: '2025-05-25', count: 5 },
-      { date: '2025-05-26', count: 4 },
-      { date: '2025-05-27', count: 6 },
-      { date: '2025-05-28', count: 3 },
-    ],
   } = analytics;
 
   return (
     <div className="p-4">
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>График новых товаров за последние 7 дней</CardTitle>
         </CardHeader>
@@ -62,12 +43,12 @@ export default function Dashboard() {
             </LineChart>
           </ResponsiveContainer>
         </CardContent>
-      </Card>
+      </Card> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
         <Card>
           <CardHeader>
-            <CardTitle>💰 Общая стоимость</CardTitle>
+            <CardTitle>Общая стоимость</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-2xl font-bold">{totalValue.toFixed(2)} $</p>
@@ -94,7 +75,7 @@ export default function Dashboard() {
 
         <Card>
           <CardHeader>
-            <CardTitle>🕓 Самый старый товар</CardTitle>
+            <CardTitle>Самый старый товар</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
@@ -108,7 +89,7 @@ export default function Dashboard() {
 
         <Card>
           <CardHeader>
-            <CardTitle>🆕 Самый новый товар</CardTitle>
+            <CardTitle>Самый новый товар</CardTitle>
           </CardHeader>
           <CardContent>
             <p>

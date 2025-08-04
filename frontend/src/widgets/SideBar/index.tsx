@@ -9,12 +9,11 @@ export default function SideBar() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/admin', label: 'Главная' },
-    { href: '/admin/products', label: 'Товары' },
-    { href: '/admin/categories', label: 'Категории' },
-    { href: '/admin/users', label: 'Пользователи' },
-    { href: '/admin/banners', label: 'Баннеры' },
-    { href: '/admin/profile', label: 'Профиль' },
+    { href: '/manager', label: 'Главная' },
+    { href: '/manager/products', label: 'Товары' },
+    { href: '/manager/categories', label: 'Категории' },
+    { href: '/manager/users', label: 'Пользователи' },
+    { href: '/manager/banners', label: 'Баннеры' },
   ];
 
   return (

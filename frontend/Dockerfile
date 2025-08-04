@@ -22,6 +22,6 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
 
 # Открываем порт (Next.js по умолчанию на 3000)
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["npm", "run", "start"]

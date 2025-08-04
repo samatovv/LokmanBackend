@@ -102,7 +102,7 @@ export default function Header() {
           <div className="hidden md:flex gap-4 items-center">
             <WifiCalling3OutlinedIcon sx={{ color: '#15A8E3', fontSize: '27px' }} />
             <div>
-              <p className="text-[#184363] font-medium">996-999-88-66-44</p>
+              <p className="text-[#184363] font-medium">+996 500 288 588</p>
             </div>
           </div>
 

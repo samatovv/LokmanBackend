@@ -52,7 +52,7 @@ export default function CartPage() {
           >
             <div className="col-span-2 flex items-center gap-4">
               <button onClick={() => handleRemoveItem(item.id)} className="text-slate-400 hover:text-red-500 text-xl">×</button>
-              <Image src={`${baseURL}/uploads/${item.image}`} alt={item.name} width={100} height={100} className="w-16 h-16 object-contain" />
+              <Image src={`${baseURL}/uploads/${item.image}`} alt={item.name} width={100} height={100} className="w-16 h-16 object-contain" unoptimized />
               <span className="text-slate-800">{item.name}</span>
             </div>
             <div className="text-center font-semibold">${item.price.toFixed(2)}</div>

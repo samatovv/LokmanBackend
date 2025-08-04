@@ -26,7 +26,7 @@ export default function Users() {
         <div className="p-6">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-3xl font-bold">Пользователи</h1>
-                <Link href="/admin/users/add" className="bg-[#15A8E3] text-white px-4 py-2 rounded">
+                <Link href="/manager/users/add" className="bg-[#15A8E3] text-white px-4 py-2 rounded">
                     <Plus size={16} />
                 </Link>
             </div>
@@ -67,7 +67,7 @@ export default function Users() {
                                             <Trash2 size={18} />
                                         </button>
                                         <button
-                                            onClick={() => router.push(`/admin/users/edit/${user.id}`)}
+                                            onClick={() => router.push(`/manager/users/edit/${user.id}`)}
                                             className="text-blue-500 hover:text-blue-700"
                                             title="Edit"
                                         >

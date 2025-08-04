@@ -181,6 +181,7 @@ export default function Categories() {
                                 alt={category.name || "Alt"}
                                 width={50}
                                 height={50}
+                                unoptimized
                             />
                             </td>
                             <td className="border px-4 py-2">{category.name}</td>
@@ -224,6 +225,7 @@ export default function Categories() {
                                     alt={sub.name}
                                     width={50}
                                     height={50}
+                                    unoptimized
                                 />
                                 )}
                             </td>

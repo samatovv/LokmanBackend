@@ -50,6 +50,7 @@ export default function ProductModal({ open, onClose, product }: ProductModalPro
               width={500}
               height={400}
               className="rounded-xl w-full h-auto object-cover"
+              unoptimized
             />
           </div>
 

@@ -128,7 +128,7 @@ export default function AddProduct() {
         setUploadedImagePath(result.image);
       }
   
-      router.push('/admin/products');
+      router.push('/manager/products');
     } catch (error) {
       console.error('Ошибка при создании товара', error);
     }

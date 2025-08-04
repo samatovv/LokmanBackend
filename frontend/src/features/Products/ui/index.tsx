@@ -22,12 +22,12 @@ export default function Products() {
     const value = e.target.value;
     
     if(value === "") {
-      router.push(`/admin/products`);
+      router.push(`/manager/products`);
     } else if (value.startsWith("cat-")) {
       const categoryId = parseInt(value.replace("cat-", ""), 10);
       const selectedCategory = categories.find(cat => cat.id === categoryId);
   
-      router.push(`/admin/products?categoryId=${selectedCategory?.id}`);
+      router.push(`/manager/products?categoryId=${selectedCategory?.id}`);
     } else if (value.startsWith("sub-")) {
       const subcategoryId = parseInt(value.replace("sub-", ""), 10);
       const parentCategory = categories.find(cat =>
@@ -35,7 +35,7 @@ export default function Products() {
       );
       const selectedSubcategory = parentCategory?.subcategories?.find(sub => sub.id === subcategoryId);
   
-      router.push(`/admin/products?subCategoryId=${selectedSubcategory?.id}`);
+      router.push(`/manager/products?subCategoryId=${selectedSubcategory?.id}`);
     }
   };
 
@@ -95,7 +95,7 @@ export default function Products() {
             ))}
           </select>
         </div>
-        <Link href="/admin/products/add" className="bg-[#15A8E3] text-white px-4 py-2 rounded">
+        <Link href="/manager/products/add" className="bg-[#15A8E3] text-white px-4 py-2 rounded">
           Добавить товар
         </Link>
       </div>
@@ -125,6 +125,7 @@ export default function Products() {
                         width={64}
                         height={64}
                         className="object-cover rounded w-20 h-20"
+                        unoptimized
                     />
                 </td>
                 <td className="p-2 border">{product.name}</td>
@@ -138,7 +139,7 @@ export default function Products() {
                 <td className="p-2 border">{product.isTop ? 'Да' : 'Нет'}</td>
                 <td className="p-2 border space-x-2">
                   <button
-                    onClick={() => router.push(`/admin/products/edit/${product.id}`)}
+                    onClick={() => router.push(`/manager/products/edit/${product.id}`)}
                     className="text-blue-500 hover:text-blue-700"
                   >
                     <Pencil size={18} />
