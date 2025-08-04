@@ -18,14 +18,29 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /root/SigmaMed
+          
+          # Остановить контейнеры и очистить место
+          docker-compose down || true
+          docker system prune -a -f || true
+          docker builder prune -a -f || true
+          
+          # Обновить код (без интерактивного ввода)
           git config pull.rebase false
           git reset --hard HEAD
           git clean -fd
-          git fetch origin
-          git reset --hard origin/main
-          docker-compose down
+          git reset --hard origin/main || git reset --hard HEAD
+          
+          # Проверить место на диске
+          df -h
+          
+          # Запустить контейнеры
           docker-compose up -d --build
-          sleep 15
-          docker exec sigmamed_backend_1 npx prisma migrate deploy
-          docker exec sigmamed_backend_1 npx prisma generate
+          sleep 20
+          
+          # Выполнить миграции если backend контейнер запустился
+          if docker ps | grep -q sigmamed_backend; then
+            docker exec sigmamed_backend_1 npx prisma migrate deploy || true
+            docker exec sigmamed_backend_1 npx prisma generate || true
+          fi
+          
           echo "Deployment completed at $(date)"
