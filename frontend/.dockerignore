@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+*.log
+npm-debug.log*
+.DS_Store
+.env*.local
+coverage
+.vercel
+.cache
+dist
+build
+*.tar.gz
