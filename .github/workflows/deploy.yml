@@ -18,7 +18,9 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /root/SigmaMed
-          git pull origin main
+          git reset --hard HEAD
+          git clean -fd
+          git pull origin main --force
           docker-compose down
           docker-compose up -d --build
           sleep 10
