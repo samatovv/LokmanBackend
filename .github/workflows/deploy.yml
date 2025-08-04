@@ -18,12 +18,14 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /root/SigmaMed
+          git config pull.rebase false
           git reset --hard HEAD
           git clean -fd
-          git pull origin main --force
+          git fetch origin
+          git reset --hard origin/main
           docker-compose down
           docker-compose up -d --build
-          sleep 10
+          sleep 15
           docker exec sigmamed_backend_1 npx prisma migrate deploy
           docker exec sigmamed_backend_1 npx prisma generate
           echo "Deployment completed at $(date)"
