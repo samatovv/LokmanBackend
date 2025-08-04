@@ -1,0 +1,8 @@
+frontend/frontend-build.tar.gz
+*.tar.gz
+build/
+dist/
+backend/uploads/
+uploads/
+node_modules/
+.DS_Store
