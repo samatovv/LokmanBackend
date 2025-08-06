@@ -16,8 +16,8 @@ app.use(cors({
       const allowedOrigins = [
         'http://localhost:3000',
         'http://192.168.77.7:3000',
-        'http://94.250.254.139',
-        'sigmamedtrade.kg',
+        'https://sigmamedtrade.kg',
+        'https://backend.sigmamedtrade.kg',
       ];
   
       if (!origin || allowedOrigins.includes(origin)) {
