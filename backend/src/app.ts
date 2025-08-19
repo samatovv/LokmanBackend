@@ -16,6 +16,7 @@ app.use(cors({
       const allowedOrigins = [
         'http://localhost:3000',
         'http://192.168.77.7:3000',
+        'http://94.250.254.139',
         'https://sigmamedtrade.kg',
         'https://backend.sigmamedtrade.kg',
       ];
@@ -27,17 +28,17 @@ app.use(cors({
       }
     },
     credentials: true,
-  }));
-app.use(cookieParser());
+}));
 
+app.use(cookieParser());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
-app.use('/categories', categoryRoutes);
-app.use('/products', productRoutes);
-app.use('/analytics', analyticsRoutes);
-app.use('/users', userRoutes);
-app.use('/banners', bannerRoutes);
-app.use('/auth', authRoutes); 
+app.use('/api/categories', categoryRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/analytics', analyticsRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/banners', bannerRoutes);
+app.use('/api/auth', authRoutes);
 
 export default app;
