@@ -51,15 +51,32 @@ model Category {
 }
 
 model Banners {
-  id       Int       @id  @default(autoincrement())
-  title    String
-  image    String
+  id                Int    @id @default(autoincrement())
+  title             String // старое поле оставляем
+  title_ru          String? // делаем опциональным
+  title_ky          String?
+  title_tr          String?
+  title_en          String?
+  image             String
 }
 
 model Services {
-  id    Int   @id @default(autoincrement())
-  title String
-  description String
-  diagnostics Json
-  methods Json
+  id                     Int    @id @default(autoincrement())
+  title                  String // старое поле оставляем  
+  description            String // старое поле оставляем
+  title_ru               String? // делаем опциональным
+  title_ky               String?
+  title_tr               String?
+  title_en               String?
+  description_ru         String? // делаем опциональным
+  description_ky         String?
+  description_tr         String?
+  description_en         String?
+  short_description      String?
+  short_description_ru   String?
+  short_description_ky   String?
+  short_description_tr   String?
+  short_description_en   String?
+  diagnostics            Json
+  methods                Json
 }
