@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  login     String  @unique
+  password  String
+  email     String  @unique
+  phone     String
+  firstName String
+  lastName  String
+  role      String  @default("user") // "admin" или "user"
+  createdAt DateTime @default(now())
+}
+
+
+model Product {
+  id            Int       @id @default(autoincrement())
+  name          String
+  price         Float?
+  description   String
+  image         String
+  quantity      String    @default("0")
+  article       String    @unique
+  createdAt     DateTime  @default(now())
+
+  categoryId    Int
+  category      Category  @relation(fields: [categoryId], references: [id])
+
+  isTop         Boolean   @default(false)
+}
+
+
+model Category {
+  id            Int        @id @default(autoincrement())
+  name          String
+  image         String     @default("")
+  popular       Boolean    @default(false)
+
+  parentId      Int?       // Если null — это основная категория
+  parent        Category?  @relation("ParentChild", fields: [parentId], references: [id])
+  subcategories Category[] @relation("ParentChild")
+
+  products      Product[]  // Товары, относящиеся к этой категории или подкатегории
+}
+
+model Banners {
+  id       Int       @id  @default(autoincrement())
+  title    String
+  image    String
+}
+
+model Services {
+  id    Int   @id @default(autoincrement())
+  title String
+  description String
+  diagnostics Json
+  methods Json
+}

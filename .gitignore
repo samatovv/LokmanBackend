@@ -1,8 +1,11 @@
-frontend/frontend-build.tar.gz
-*.tar.gz
-build/
-dist/
-backend/uploads/
-uploads/
+node_modules
+# Keep environment variables out of version control
+.env
+
+/generated/prisma
+# Добавьте в .gitignore
+.env.local
+.env.docker
 node_modules/
-.DS_Store
+dist/
+build/
