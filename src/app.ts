@@ -8,6 +8,7 @@ import analyticsRoutes from './routes/analyticsRoutes';
 import categoryRoutes from './routes/categoryRoutes';
 import bannerRoutes from './routes/bannerRoutes';
 import servicesRoutes from './routes/servicesRoutes';
+import uploadRoutes from './routes/uploadRoutes';
 import path from 'path';
 
 const app = express();
@@ -31,6 +32,7 @@ app.use(cors({
 
 app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.use('/api/categories', categoryRoutes);
@@ -40,5 +42,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/banners', bannerRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/services', servicesRoutes);
+app.use('/api/upload', uploadRoutes);
 
 export default app;
