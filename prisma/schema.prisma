@@ -62,7 +62,7 @@ model Banners {
 
 model Services {
   id                     Int    @id @default(autoincrement())
-  title                  String // старое поле оставляем  
+  title                  String // старое поле оставляем
   description            String // старое поле оставляем
   title_ru               String? // делаем опциональным
   title_ky               String?
@@ -79,4 +79,5 @@ model Services {
   short_description_en   String?
   diagnostics            Json
   methods                Json
+  images                 Json?   // массив с картинками: [{url: string, position: number, order: number}]
 }

@@ -13,9 +13,9 @@ export const getServices = async (req: Request, res: Response) => {
 
 export const createService = async (req: Request, res: Response) => {
   try {
-    const { 
-      title, 
-      description, 
+    const {
+      title,
+      description,
       short_description,
       title_ru,
       title_ky,
@@ -29,10 +29,17 @@ export const createService = async (req: Request, res: Response) => {
       short_description_ky,
       short_description_tr,
       short_description_en,
-      diagnostics, 
-      methods 
+      diagnostics,
+      methods,
+      images
     } = req.body;
-    
+
+    // Валидация: максимум 4 картинки
+    if (images && Array.isArray(images) && images.length > 4) {
+      res.status(400).json({ message: 'Maximum 4 images allowed' });
+      return;
+    }
+
     const service = await prisma.services.create({
       data: {
         title,
@@ -51,7 +58,8 @@ export const createService = async (req: Request, res: Response) => {
         short_description_tr,
         short_description_en,
         diagnostics,
-        methods
+        methods,
+        images: images || []
       }
     });
     res.status(201).json(service);
@@ -85,9 +93,9 @@ export const getServiceById = async (req: Request, res: Response) => {
 export const updateService = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { 
-      title, 
-      description, 
+    const {
+      title,
+      description,
       short_description,
       title_ru,
       title_ky,
@@ -101,10 +109,17 @@ export const updateService = async (req: Request, res: Response) => {
       short_description_ky,
       short_description_tr,
       short_description_en,
-      diagnostics, 
-      methods 
+      diagnostics,
+      methods,
+      images
     } = req.body;
-    
+
+    // Валидация: максимум 4 картинки
+    if (images && Array.isArray(images) && images.length > 4) {
+      res.status(400).json({ message: 'Maximum 4 images allowed' });
+      return;
+    }
+
     const service = await prisma.services.update({
       where: {
         id: parseInt(id)
@@ -126,7 +141,8 @@ export const updateService = async (req: Request, res: Response) => {
         short_description_tr,
         short_description_en,
         diagnostics,
-        methods
+        methods,
+        ...(images !== undefined && { images })
       }
     });
     res.json(service);
