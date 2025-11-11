@@ -80,4 +80,5 @@ model Services {
   diagnostics            Json
   methods                Json
   images                 Json?   // массив с картинками: [{url: string, position: number, order: number}]
+  order                  Int     @default(0) // порядок отображения услуги
 }

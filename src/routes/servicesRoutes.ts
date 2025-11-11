@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { authenticateToken } from "../middlewares/authMiddleware";
-import { createService, deleteService, getServiceById, getServices, updateService } from "../controllers/servicesController";
+import { createService, deleteService, getServiceById, getServices, updateService, reorderServices } from "../controllers/servicesController";
 
 const router = Router();
 
@@ -9,5 +9,6 @@ router.get('/', getServices);
 router.get('/:id', getServiceById);
 router.delete('/:id', authenticateToken, deleteService);
 router.put('/:id', authenticateToken, updateService);
+router.post('/reorder', authenticateToken, reorderServices);
 
 export default router;
